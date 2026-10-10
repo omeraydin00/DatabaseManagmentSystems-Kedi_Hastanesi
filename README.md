@@ -1,148 +1,33 @@
-# Kedi Hastanesi Hasta Yönetim Sistemi
+# Cat Hospital
 
-## Proje Hakkında
-Bu proje, kedi hastanesindeki hasta kayıtlarını, randevuları, tedavi süreçlerini ve stok yönetimini dijital ortamda takip etmek için geliştirilmiştir. PostgreSQL veritabanı ve Node.js kullanılarak oluşturulan bu sistem, hasta yönetim işlemlerini kolaylaştırır.
+A patient management system for a veterinary clinic that only treats cats.
 
----
+Node.js · Express · PostgreSQL
 
-## Gereksinimler
-Projeyi çalıştırmak için aşağıdaki yazılım ve araçların sisteminizde kurulu olduğundan emin olun:
+<img alt="Adding a patient" src="https://github.com/user-attachments/assets/5e51897a-a5e6-4d14-9070-8035e80815e6" />
 
-1. **Node.js** (v14.0 veya üzeri)
-2. **PostgreSQL** (v12.0 veya üzeri)
+The web page lets staff add a patient, search by name or breed, edit a record and delete it. Behind it is a PostgreSQL database designed for the whole clinic: patients, staff, veterinarians and support staff, appointments and their types, treatments, prescriptions, clinics and stock. The full schema and example queries are in [`SQL_Kodları`](SQL_Kodları).
 
+<p>
+  <img width="49%" alt="Search" src="https://github.com/user-attachments/assets/3a93ac51-563a-4b23-9cd4-a2fa3a112797" />
+  <img width="49%" alt="Edit" src="https://github.com/user-attachments/assets/6ed4ec76-53a3-4a6a-8128-8964c1320b3c" />
+</p>
 
+## Running it
 
-### Uygulamayı Çalıştırma
-Projeyi başlatmak için aşağıdaki komutu kullanın:
+You need Node.js 14 or newer and PostgreSQL 12 or newer.
 
-cd C:\Users\leviv\kedi_hastanesi1  // sizin proje klasörünüz
+1. Create the tables by running the statements in `SQL_Kodları` on your database.
+2. Set your database user and password in the `Pool` settings at the top of `kedi_hastanesi1/index.js`.
+3. Start the server:
 
+```bash
+git clone https://github.com/omeraydin00/DatabaseManagmentSystems-Kedi_Hastanesi.git
+cd DatabaseManagmentSystems-Kedi_Hastanesi/kedi_hastanesi1
+npm install
 node index.js
+```
 
+Then open http://localhost:3000.
 
-## Projenin Kullanımı
-1. **Ana Sayfa:** Tarayıcınızda `http://localhost:3000` adresine giderek uygulamayı açabilirsiniz.
-2. **Hasta Yönetimi:**
-   - Yeni hasta eklemek.
-   - Mevcut hastaları listelemek, aramak, düzenlemek ve silmek.
-
-![ekle](https://github.com/user-attachments/assets/5e51897a-a5e6-4d14-9070-8035e80815e6)
-![ara](https://github.com/user-attachments/assets/3a93ac51-563a-4b23-9cd4-a2fa3a112797)
-![düzenle](https://github.com/user-attachments/assets/6ed4ec76-53a3-4a6a-8128-8964c1320b3c)
-![sil](https://github.com/user-attachments/assets/f726171f-dd22-4818-ba29-71ed0d6b2465)
-
----
-
-## Destek
-Herhangi bir sorunla karşılaşırsanız, leviverleihtflugel@gmail.com üzerinden iletişime geçin.
-
-######################################
-##Örnek SQL - KAYIT EKLEME İfadeleri
-######################################
-
-Personel Tablosuna Kayıt Eklemek
-Veteriner bilgisi eklemek için önce Personel tablosuna bir kayıt ekledik:
-
-INSERT INTO Personel (Isim, Telefon, Adres, Pozisyon)
-VALUES ('Dr. Ahmet', '555-555-5555', 'Ankara', 'Veteriner');
-
-######################################
-Veteriner Tablosuna Kayıt Eklemek
-Veteriner tablosuna, Personel tablosuna eklenen kaydı referans alarak bir kayıt ekledik:
-
-INSERT INTO Veteriner (VeterinerID, UzmanlikAlani, CalismaSaatleri)
-VALUES (1, 'Küçük Hayvanlar', '09:00-18:00');
-
-######################################
-RandevuTuru Tablosuna Kayıt Eklemek
-Randevu türü kaydı ekleyerek RandevuTurID için bir kayıt oluşturduk:
-
-INSERT INTO RandevuTuru (TurAdi)
-VALUES ('Genel Kontrol');
-
-######################################
-Randevu Tablosuna Kayıt Eklemek
-Son olarak, HastaID, VeterinerID ve RandevuTurID değerlerini kullanarak Randevu kaydını ekledik:
-
-INSERT INTO Randevu (HastaID, VeterinerID, Tarih, Saat, Durum, RandevuTurID)
-VALUES (23, 1, '2024-12-23', '10:00', 'Planlanmış', 1);
-
-######################################
-##Örnek SQL - KAYIT SORGU İfadeleri
-######################################
-
-Personel Tablosundaki Kayıtları Sorgulamak
-Eklediğimiz veterinerin kayıt bilgilerini görmek için:
-
-SELECT * FROM Personel WHERE Pozisyon = 'Veteriner';
-
-######################################
-Veteriner Tablosundaki Kayıtları Sorgulamak
-Veteriner tablosundaki tüm kayıtları görüntülemek için:
-
-SELECT * FROM Veteriner;
-
-######################################
-Belirli bir veterineri sorgulamak için:
-
-SELECT * FROM Veteriner WHERE VeterinerID = 1;
-
-######################################
-RandevuTuru Tablosundaki Kayıtları Sorgulamak
-Eklediğiniz randevu türünü görmek için:
-
-SELECT * FROM RandevuTuru;
-
-######################################
-Randevu Tablosundaki Kayıtları Sorgulamak
-Eklediğiniz randevuyu görmek için:
-
-SELECT * FROM Randevu;
-
-######################################
-Belirli bir hastanın randevusunu sorgulamak için:
-
-SELECT * FROM Randevu WHERE HastaID = 23;
-
-######################################
-İlişkili Tablolardan Veri Getirmek
-Bir randevunun detaylarını (hasta adı, veteriner adı, randevu türü) görmek için JOIN kullanabilirsiniz:
-
-SELECT 
-    r.RandevuID,
-    h.Isim AS HastaAdi,
-    v.UzmanlikAlani AS VeterinerUzmanlik,
-    rt.TurAdi AS RandevuTuru,
-    r.Tarih,
-    r.Saat,
-    r.Durum
-FROM Randevu r
-JOIN Hasta h ON r.HastaID = h.HastaID
-JOIN Veteriner v ON r.VeterinerID = v.VeterinerID
-JOIN RandevuTuru rt ON r.RandevuTurID = rt.RandevuTurID;
-
-######################################
-Belirli Koşullarla Sorgulama
-Örneğin, belirli bir tarihteki randevuları listelemek için:
-
-SELECT * FROM Randevu WHERE Tarih = '2024-12-23';
-
-######################################
-Günlük/Haftalık Randevu Raporu: Belirli bir tarihte ya da hafta içinde gerçekleşecek randevuları listeleyebilirsiniz.
-
-SELECT r.RandevuID, h.Isim AS HastaAdi, v.UzmanlikAlani, r.Tarih, r.Saat
-FROM Randevu r
-JOIN Hasta h ON r.HastaID = h.HastaID
-JOIN Veteriner v ON r.VeterinerID = v.VeterinerID
-WHERE r.Tarih BETWEEN '2024-12-23' AND '2024-12-30';
-
-######################################
-Veteriner Bazlı Rapor: Bir veterinerin kaç randevuya katıldığını ve hangi türlerle ilgilendiğini listeleyebilirsiniz.
-
-SELECT v.VeterinerID, v.UzmanlikAlani, COUNT(r.RandevuID) AS RandevuSayisi
-FROM Randevu r
-JOIN Veteriner v ON r.VeterinerID = v.VeterinerID
-GROUP BY v.VeterinerID, v.UzmanlikAlani;
-
-######################################
+Made for the Database Management Systems course at Sakarya University.
