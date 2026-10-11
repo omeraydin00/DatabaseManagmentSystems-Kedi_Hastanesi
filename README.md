@@ -1,4 +1,6 @@
-# Cat Hospital
+<p align="center">
+  <img src="./assets/header.svg" alt="Cat Hospital" width="100%" />
+</p>
 
 A patient management system for a veterinary clinic that only treats cats.
 
