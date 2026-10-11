@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="260" viewBox="0 0 1200 260" role="img" aria-label="Cat Hospital: A veterinary clinic on a full PostgreSQL schema.">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0D1117"/>
+      <stop offset="1" stop-color="#161B22"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.78" cy="0.5" r="0.42">
+      <stop offset="0" stop-color="#1F6FEB" stop-opacity="0.2"/>
+      <stop offset="1" stop-color="#1F6FEB" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#58A6FF"/>
+      <stop offset="1" stop-color="#BC8CFF"/>
+    </linearGradient>
+    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.2" fill="#8B949E" opacity="0.18"/>
+    </pattern>
+    <clipPath id="frame"><rect width="1200" height="260" rx="16"/></clipPath>
+    <style>
+      .mono  { font: 500 15px 'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', monospace; fill: #8B949E; }
+      .name  { font: 700 48px 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif; fill: #F0F6FC; letter-spacing: -1px; }
+      .meta  { font: 400 18px 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif; fill: #8B949E; }
+      .stack { font: 500 15px 'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', monospace; fill: url(#accent); }
+      .label { font: 600 14px 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif; fill: #C9D1D9; }
+      .small { font: 600 12px 'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', monospace; fill: #8B949E; }
+      .hub   { font: 700 13px 'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', monospace; fill: #F0F6FC; letter-spacing: 1px; }
+      .flow { stroke-dasharray: 6 14; animation: dash 1.2s linear infinite; opacity: 0.55; }
+      @keyframes dash { to { stroke-dashoffset: -40; } }
+      .in { animation: in 0.8s ease-out backwards; }
+      .i1 { animation-delay: 0.05s; } .i2 { animation-delay: 0.2s; } .i3 { animation-delay: 0.35s; } .i4 { animation-delay: 0.5s; }
+      @keyframes in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+      
+    </style>
+  </defs>
+
+  <g clip-path="url(#frame)">
+    <rect width="1200" height="260" fill="url(#bg)"/>
+    <rect width="1200" height="260" fill="url(#dots)"/>
+    <rect width="1200" height="260" fill="url(#glow)"/>
+    <rect x="0.75" y="0.75" width="1198.5" height="258.5" rx="15.5" fill="none" stroke="#30363D" stroke-width="1.5"/>
+
+    <text x="64" y="70" class="mono in i1">~/omeraydin00/DatabaseManagmentSystems-Kedi_Hastanesi</text>
+    <text x="62" y="130" class="name in i2">Cat Hospital</text>
+    <text x="64" y="172" class="meta in i3">A veterinary clinic on a full PostgreSQL schema.</text>
+    <text x="64" y="212" class="stack in i4">Node.js · PostgreSQL</text>
+
+<path d="M906 79 L1010 79" stroke="#30363D" stroke-width="2" fill="none"/><path d="M906 79 L1010 79" class="flow" stroke="#58A6FF" stroke-width="2" fill="none" style="animation-delay:0s"/><circle r="4" fill="#79C0FF" opacity="0">
+      <animateMotion dur="2.2s" begin="0.0s" repeatCount="indefinite" path="M906 79 L1010 79"/>
+      <animate attributeName="opacity" values="0;1;1;0" dur="2.2s" begin="0.0s" repeatCount="indefinite"/>
+    </circle><path d="M1060 114 C1060 140 890 120 860 150" stroke="#30363D" stroke-width="2" fill="none"/><path d="M1060 114 C1060 140 890 120 860 150" class="flow" stroke="#58A6FF" stroke-width="2" fill="none" style="animation-delay:0.5s"/><circle r="4" fill="#79C0FF" opacity="0">
+      <animateMotion dur="2.2s" begin="0.8s" repeatCount="indefinite" path="M1060 114 C1060 140 890 120 860 150"/>
+      <animate attributeName="opacity" values="0;1;1;0" dur="2.2s" begin="0.8s" repeatCount="indefinite"/>
+    </circle><path d="M906 185 L1010 185" stroke="#30363D" stroke-width="2" fill="none"/><path d="M906 185 L1010 185" class="flow" stroke="#58A6FF" stroke-width="2" fill="none" style="animation-delay:1.0s"/><circle r="4" fill="#79C0FF" opacity="0">
+      <animateMotion dur="2.2s" begin="1.6s" repeatCount="indefinite" path="M906 185 L1010 185"/>
+      <animate attributeName="opacity" values="0;1;1;0" dur="2.2s" begin="1.6s" repeatCount="indefinite"/>
+    </circle><rect x="770" y="44" width="136" height="70" rx="10" fill="#161B22" stroke="#30363D" stroke-width="1.5"/><rect x="770" y="70" width="136" height="1.5" fill="#30363D"/><text x="784" y="62" class="small" fill="#79C0FF" style="fill:#79C0FF">Patients</text><rect x="784" y="80" width="96" height="5" rx="2.5" fill="#30363D"/><rect x="784" y="91" width="76" height="5" rx="2.5" fill="#30363D"/><rect x="784" y="102" width="88" height="5" rx="2.5" fill="#30363D"/><rect x="1010" y="44" width="136" height="70" rx="10" fill="#161B22" stroke="#30363D" stroke-width="1.5"/><rect x="1010" y="70" width="136" height="1.5" fill="#30363D"/><text x="1024" y="62" class="small" fill="#79C0FF" style="fill:#79C0FF">Appointments</text><rect x="1024" y="80" width="96" height="5" rx="2.5" fill="#30363D"/><rect x="1024" y="91" width="76" height="5" rx="2.5" fill="#30363D"/><rect x="1024" y="102" width="88" height="5" rx="2.5" fill="#30363D"/><rect x="770" y="150" width="136" height="70" rx="10" fill="#161B22" stroke="#30363D" stroke-width="1.5"/><rect x="770" y="176" width="136" height="1.5" fill="#30363D"/><text x="784" y="168" class="small" fill="#79C0FF" style="fill:#79C0FF">Treatments</text><rect x="784" y="186" width="96" height="5" rx="2.5" fill="#30363D"/><rect x="784" y="197" width="76" height="5" rx="2.5" fill="#30363D"/><rect x="784" y="208" width="88" height="5" rx="2.5" fill="#30363D"/><rect x="1010" y="150" width="136" height="70" rx="10" fill="#161B22" stroke="#30363D" stroke-width="1.5"/><rect x="1010" y="176" width="136" height="1.5" fill="#30363D"/><text x="1024" y="168" class="small" fill="#79C0FF" style="fill:#79C0FF">Inventory</text><rect x="1024" y="186" width="96" height="5" rx="2.5" fill="#30363D"/><rect x="1024" y="197" width="76" height="5" rx="2.5" fill="#30363D"/><rect x="1024" y="208" width="88" height="5" rx="2.5" fill="#30363D"/><rect x="776" y="77" width="124" height="11" rx="3" fill="#58A6FF" opacity="0.15"><animate attributeName="y" values="77;77;88;88;99;99;77" keyTimes="0;0.3;0.33;0.63;0.66;0.96;1" dur="4.5s" repeatCount="indefinite"/></rect>
+  </g>
+</svg>
