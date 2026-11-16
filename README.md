@@ -6,30 +6,33 @@ A patient management system for a veterinary clinic that only treats cats.
 
 Node.js · Express · PostgreSQL
 
-<img alt="Adding a patient" src="https://github.com/user-attachments/assets/5e51897a-a5e6-4d14-9070-8035e80815e6" />
+<img alt="The clinic's day: patients, today's appointments and stock warnings" src="screenshots/ana.png" />
 
-The web page lets staff add a patient, search by name or breed, edit a record and delete it. Behind it is a PostgreSQL database designed for the whole clinic: patients, staff, veterinarians and support staff, appointments and their types, treatments, prescriptions, clinics and stock. The full schema and example queries are in [`SQL_Kodları`](SQL_Kodları).
+The page shows the clinic's day at a glance: how many patients are registered, today's appointments and which of them are still waiting, and the stock that is running low or close to its expiry date. Staff can add a patient, search by name, breed or owner, edit a record, and open a patient to see every appointment with its treatment and prescriptions.
+
+Behind it is a PostgreSQL database designed for the whole clinic: patients, staff, veterinarians and support staff, appointments and their types, treatments, prescriptions, clinics and stock, 15 tables in all, with stored procedures and triggers. Booking an appointment opens its treatment record on its own, and a patient with appointments cannot be deleted, so their history is kept. The full schema is in [`SQL_Kodları`](SQL_Kodları).
 
 <p>
-  <img width="49%" alt="Search" src="https://github.com/user-attachments/assets/3a93ac51-563a-4b23-9cd4-a2fa3a112797" />
-  <img width="49%" alt="Edit" src="https://github.com/user-attachments/assets/6ed4ec76-53a3-4a6a-8128-8964c1320b3c" />
+  <img width="49%" alt="A patient's history" src="screenshots/gecmis.png" />
+  <img width="49%" alt="Adding a patient" src="screenshots/form.png" />
 </p>
 
 ## Running it
 
-You need Node.js 14 or newer and PostgreSQL 12 or newer.
-
-1. Create the tables by running the statements in `SQL_Kodları` on your database.
-2. Set your database user and password in the `Pool` settings at the top of `kedi_hastanesi1/index.js`.
-3. Start the server:
+You need Node.js 18 or newer and PostgreSQL 12 or newer.
 
 ```bash
 git clone https://github.com/omeraydin00/DatabaseManagmentSystems-Kedi_Hastanesi.git
 cd DatabaseManagmentSystems-Kedi_Hastanesi/kedi_hastanesi1
 npm install
-node index.js
+
+createdb kedi_hastanesi
+npm run db      # the schema from SQL_Kodları and some example data
+npm start
 ```
 
 Then open http://localhost:3000.
+
+The connection uses PostgreSQL's usual environment variables (`PGHOST`, `PGUSER`, `PGPASSWORD`, `PGPORT`, `PGDATABASE`), so set those if your database is not the local default. The example data in [`db/ornek-veri.sql`](kedi_hastanesi1/db/ornek-veri.sql) is made up and dated from today, so there is always something on today's list.
 
 Made for the Database Management Systems course at Sakarya University.

@@ -1,16 +1,16 @@
 {
   "name": "kedi_hastanesi1",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "db": "PGOPTIONS=--client-min-messages=warning psql -v ON_ERROR_STOP=1 -q -d ${PGDATABASE:-kedi_hastanesi} -f ../SQL_Kodları -f db/ornek-veri.sql"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "description": "",
+  "license": "MIT",
+  "description": "Kedi kliniği için hasta yönetim sistemi",
   "dependencies": {
-    "body-parser": "^1.20.3",
     "express": "^4.21.2",
     "pg": "^8.13.1"
   }
